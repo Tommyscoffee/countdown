@@ -1,153 +1,115 @@
-*{font-family: 'Sawarabi Gothic', sans-serif;
-    line-height:180%;
-    /* 日本がなどを単語中に改行しないようにする */
-    word-break: break-all;
-    /* これがないとずれる */
-    margin:0;
-    -webkit-box-sizing:border-box;
-}
-#wrapper{
-    border-top:solid 8px #6CC6C4;
-    /* box-sizing:border-box; */
-}
-.header-wrapper{
-    height:200px;
-    margin:0 auto 20px;
-    width:920px;
-}
-header{
-    position:relative;
-    height:200px;
-}
-/* header{
-    position:relative;
-} */
-.header-right{
-    float:right;
-    text-align:right;
-}
-.siteTitle{
-    position:absolute;
-    top:50px;
-    /* マージンが初期値でついていたので０にした */
-    margin:0;
-}
-.phrase{
-    font-size:8px;
-    position:absolute;
-    top:12px;
-    right:0;
-}
-.address{
-    position:absolute;
-    top:35px;
-    right:0;
-    height:75px;
-    width:220px;
-}
-.address .tel{
-    font-size:25px;
-    background-image:url("public/bgTel.png");
-    background-position:left;
-    background-repeat:no-repeat;
-    padding:0 0 0 25px;
-    text-align:center;
-}
-.reception{
-    border:solid 1px #D6D6D6;
-    font-size:10px;
-    height: 30px;
-    padding:5px 0px;
-    text-align:center;  
-}
-.reception .red{
-    color:#B73916; 
-}
-.header-nav{
-    position: absolute;
-    top:128px;
-    width:100%;
-    border:solid 1px #6CC6C4;
-    /* border-radius:6px; これではheader-navのリスト一つ一つを区切れない */
-    font-size:12px;
-    height:72px;  
-    background-color:#6CC6C4;
-    /* linear-gradient関数で、グラデーション、一番下で濃くなる */
-    background-image: linear-gradient(rgb(156,227,225) 0%,rgb(108,198,196) 100%);
-    border-radius:6px;
-}
-.header-nav .first{
-    /* これで、header-navの一番左のリストの左上、左下の角が丸くなる */
-    border-radius:6px 0px 0px 6px;
-    /* border-left:#71C9C7 1px solid;
-    border-right:#99E1DF 1px solid; */
-}
-/* display:flex;は親要素に指定する */
-.header-nav ul{
-    display:flex;
-    list-style:none;
-    /* justify-contentも親要素に指定する */
-    justify-content: space-around ;
-    margin:0; 
-    padding:0;  
-}
-.header-nav span{
-    /* blockレベルは親要素の幅と同じになるから、この場合、.header-nav liと同じ幅()になり、縦に並べることができる。 */
-    display:block;  
-    word-break:break-all; 
-    text-align:center; 
-    line-height:20px; 
-    font-size:108%;
-}
+@charset "UTF-8";
 
-.header-nav a{
-    padding:17px 0 18px;
-    text-decoration:none;
-    text-shadow:1px 1px 2px #6CC6C4;
-    color:white;
-    display:block;
-    border-right: #71C9C7 solid 1px;
-    border-left: #99E1DF solid 1px;
-
-    height:70px;
+html {
+    font-size: 16px;
 }
-.header-nav li{
-    text-align:-webkit-match-parent;
-    width:100%;
-    /* これを、li>aのheightがliを超えていたのを解消しようとしたが、解消されず、直接aセレクタのheightを70pxにした */
-    /* height:70px;
-    margin:0;
-    padding:0;
-    list-style:none; */
+html, body {
+    height: 100%;
 }
-/* li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-} */
-.contents-wrapper{
-    width:920px;
-    margin:0 auto;
-    text-align:left;
-    /* overflowで高さが戻った。子要素の.content-mainがfloat:rightで親要素の高さが消える。 */
-    overflow:hidden;
+body *, ::before, ::after {
+    box-sizing: border-box;
 }
-.content-main{
-    width:645px;
-    margin-left:20px;
-    float:right;
-    display:block;
+body {
+    margin: 0;
+    font-family: 'M PLUS 1p', sans-serif;
+    font-weight: 400;
+    background-color: #fff;
+    color: #000;
 }
-.mainImage img{
-    height:280px;
-
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 16px;
 }
-.content-sub{
-    display:block;
-    /* margin-top:20px; */
-    float:left;
-    width:260px;
-    margin-left:auto;
+@media (min-width: 768px) {
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 30px;
+    }
 }
-footer{
-    float:left;
+header {
+    background-color: #1aaedb;
+    border-bottom: #ead963 6px solid;
+}
+header .container {
+    min-height: 60px;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 76px;
+    background-image: url(../images/logo.svg);
+    background-repeat: no-repeat;
+    background-size: 53px;
+    background-position: 16px 10px;
+}
+@media (min-width: 768px) {
+    header .container {
+        min-height: 100px;
+        padding-left: 120px;
+        background-size: 80px;
+        background-position: 30px 20px;
+    }
+}
+header .container h1,
+header .container h2 {
+    margin: 0;
+    color: #fff;
+    line-height: 1;
+}
+header .container h1 {
+    padding: 15px 0 4px 0;
+    border-bottom: 1px dotted #fff;
+    font-size: 16px;
+    font-weight: 500;
+}
+header .container h2 {
+    padding: 5px 0 0 0;
+    font-size: 10px;
+    font-weight: 400;
+}
+@media (min-width: 768px) {
+    header .container h1 {
+        padding: 30px 0 5px 0;
+        font-size: 24px;
+    }
+    header .container h2 {
+        padding: 6px 0 0 0;
+        font-size: 14px;
+    }
+}
+main {
+    min-height: calc(100% - 156px);
+}
+main .container {
+    margin: 0 auto;
+    background-color: #fff;
+}
+footer {
+    background-color: #1aaedb;
+}
+footer .container {
+    min-height: 50px;
+    padding-top:10px;
+    padding-bottom:10px;
+    color: #fff;
+    font-size: 12px;
+    text-align: right;
+}
+@media (min-width: 768px) {
+    footer .container {
+        min-height: 50px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+footer .container p {
+    margin: 0;
+}
+a {
+    color: #ed8a29;
+    text-decoration: none;
+}
+a:hover {
+    color: #ffb974;
+    text-decoration: underline;
 }
